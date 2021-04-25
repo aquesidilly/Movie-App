@@ -1,16 +1,16 @@
 # Project 4 - Movie-App
 
 ##### What does it do and what need does it fulfil?
-This project uses skills learnt to build a Flask Website that uses a Mongo backend. It is for people to view recipes, register as users and create, update and delete their own recipes. Users can also search for recipes that contain for the searched word in its tags, title or ingredients. The project can be viewed [https://recipe-glut.herokuapp.com/](https://recipe-glut.herokuapp.com/)
+This project uses skills learnt to build a Flask Website that uses a Mongo backend. It is for people to view recipes, register as users and create, update and delete their own recipes. Users can also search for recipes that contain for the searched word in its tags, title or ingredients. The project can be viewed [https://.herokuapp.com/](https://.herokuapp.com/)
 
 ##### Functionality of project
-The Website is fully responsive and uses Mongo DB to hold users collection and a recipes collection. The user is able to register and login and view recipes. Logged in users are able to Create, update (edit) and delete their own recipes. Any user (logged in or not) can search for recipes using the search box. A user can also log out.   
+The Website is fully responsive and uses Mongo DB to hold users collection and a movie-app collection. The user is able to register and login and view movies. Logged in users are able to Create, update (edit) and delete their own movies. Any user (logged in or not) can search for movies using the search box. A user can also log out.   
 
-The recipes page shows all recipes in order of the amount of views each recipe has. The recipes are paginated.  This pagination is done the proper way, that is by the database. I have not done it the easy/wrong way which is to use jQuery as if there was 5,000 recipes it would load all of them in one time and would not be fast and affect the user-experience. 
+The movies page shows all movies in order of the amount of views each movie has. The movies are paginated.  This pagination is done the proper way, that is by the database. I have not done it the easy/wrong way which is to use jQuery as if there was 5,000 recipes it would load all of them in one time and would not be fast and affect the user-experience. 
   
-Each recipe on the recipes page can be clicked onto and that will load the single recipe page which shows the entire entry. If the user created the recipe on this page they will be able to edit and delete the recipe. 
+Each movie on the recipes page can be clicked onto and that will load the single movie page which shows the entire entry. If the user created the recipe on this page they will be able to edit and delete the movie. 
 
-The add recipe allows the logged in user to create a recipe and enter it onto the database.
+The add movie allows the logged in user to create a movie and enter it onto the database.
 
 ##### Technologies Used
 
@@ -43,11 +43,11 @@ The registration page and logic are tested. I test for mismatched passwords, dup
 
 The login page is tested throughout my tests as a number of my test operations require a logged in user. 
 
-The create recipe page is tested by checking that a recipe is entered, the page redirects and the new recipe is present on the index page.
+The create movie page is tested by checking that a movie is entered, the page redirects and the new movie is present on the index page.
 
-The recipes to recipe page is tested by searching for any recipes on the recipe page, getting its id number and going to that recipe details page and checking the contents are there.  
+The movies to movie page is tested by searching for any movies on the movie page, getting its id number and going to that recipe details page and checking the contents are there.  
 
-The update recipe page is tested by going to a logged in users edit recipe page and changing some data and committing it. This the redirects the user to teh index page and that it tested that the information has changed on that recipe. 
+The update movie page is tested by going to a logged in users edit movie page and changing some data and committing it. This the redirects the user to teh index page and that it tested that the information has changed on that movie. 
   
 The delete recipe page is tested by going to it's recipe detail page and deleting it, then checking the redirect has happened and that the recipe does not appear on the index page.
 
