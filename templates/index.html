@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block nav_index %}active{% endblock %}
+{% block content %}
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+        <h1 class="display-3">A Glut of Recipes!</h1>
+        <p class="lead ">You feed me, I feed You</p>
+        <div class="row">
+            <div class="col-lg-4">
+                <form class="input-group mb-3" action="{{ url_for('search') }}">
+                    <input class="form-control" type="text" name="query"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">Find Recipes!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+    <div class="row text-center">
+        {% for recipe in recipes %}
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="{{ recipe.image }}" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ recipe.title }}</h4>
+                        <p class="card-text">{{ recipe.short_description }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="btn btn-primary">Find Out
+                            More!</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- /.row -->
+{% endblock %}
