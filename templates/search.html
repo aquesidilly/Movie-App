@@ -3,16 +3,16 @@
 {% block content %}
     <h1>Results for: <em>{{ query }}</em>.</h1>
     <div class="row text-center">
-    {% for recipe in results %}
+    {% for movie in results %}
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src="{{ recipe.image }}" alt="">
+            <img class="card-img-top" src="{{ movie.image }}" alt="">
             <div class="card-body">
-              <h4 class="card-title">{{ recipe.title }}</h4>
-              <p class="card-text">{{ recipe.short_description }}</p>
+              <h4 class="card-title">{{ movie.title }}</h4>
+              <p class="card-text">{{ movie.short_description }}</p>
             </div>
             <div class="card-footer">
-              <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="btn btn-primary">Find Out More!</a>
+              <a href="{{ url_for('movie', movie_id=movie._id) }}" class="btn btn-primary">Find Out More!</a>
             </div>
           </div>
         </div>

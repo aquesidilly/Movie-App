@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ title }} - RecipeGlut</title>
+    <title>{{ title }} - Movie-App</title>
     <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../static/css/heroic-features.css" rel="stylesheet">
 </head>
@@ -19,7 +19,7 @@
 {% endif %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{ url_for('index') }}">Recipe Glut</a>
+        <a class="navbar-brand" href="{{ url_for('index') }}">Movie-App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% block nav_recipes %}{% endblock %}" href="{{ url_for('recipes') }}">Recipes</a>
+                    <a class="nav-link {% block nav_recipes %}{% endblock %}" href="{{ url_for('movies') }}">Movies</a>
                 </li>
                 {% if 'username' not in session %}
                     <li class="nav-item">
@@ -42,7 +42,7 @@
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% block nav_create_recipe %}{% endblock %}" href="{{ url_for('create_recipe') }}">Add Recipe</a>
+                        <a class="nav-link {% block nav_create_movie %}{% endblock %}" href="{{ url_for('create_movie') }}">Add Movie</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% block nav_logout %}{% endblock %}" href="{{ url_for('logout') }}">Logout</a>
@@ -57,7 +57,7 @@
 </div>
 <footer class="py-5 bg-dark">
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Recipe Glut 2018</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Movie-App 2018</p>
     </div>
 </footer>
 <script src="../static/vendor/jquery/jquery.min.js"></script>

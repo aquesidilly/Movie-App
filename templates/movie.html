@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="mt-2">{{ movie.title }}</h1>
+
+    <div class="row pt-3">
+        <div class="col-lg-6">
+            <p>Views: {{ movie.views }}</p>
+            <img class="card-img-top border-right" src="{{ movie.image }}" alt="">
+            <hr>
+            <h5>{{ movie.short_description }}</h5>
+            <br>
+        </div>
+        <div class="col-lg-6">
+            <h3>Collections</h3>
+            <p style="white-space: pre-wrap;">{{ movie.collections }}</p>
+        </div>
+    </div>
+    {% if session['username'] == movie.user %}
+        <div class="row float-right">
+            <a href="{{ url_for('edit_movie', movie_id=movie._id) }}" class="btn btn-secondary mr-3">Edit Movie</a>
+            <a href="{{ url_for('delete_movie', movie_id=movie._id) }}" class="btn btn-danger">Delete Movie</a>
+        </div>
+    {% endif %}
+    <h3>Method</h3>
+    <p style="white-space: pre-wrap;">{{ movie.method }}</p>
+    <p>Movie submitted by: {{ movie.user }}</p>
+{% endblock %}
