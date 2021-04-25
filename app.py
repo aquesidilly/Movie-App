@@ -1,6 +1,6 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, session
 from config import Config
-from forms import LoginForm, RegisterForm, CreateRecipeForm, EditRecipeForm, ConfirmDelete
+from forms import LoginForm, RegisterForm, CreateMovieForm, EditMovieForm, ConfirmDelete
 from flask_pymongo import PyMongo, DESCENDING
 from bson.objectid import ObjectId
 import bcrypt
@@ -20,8 +20,8 @@ mongo = PyMongo(app)
 @app.route('/index')
 def index():
     """Home page the gets 4 recipes from DB that have been viewed the most"""
-    four_recipes = mongo.db.recipes.find().sort([('views', DESCENDING)]).limit(4)
-    return render_template('index.html', title="Home", recipes=four_recipes)
+    four_movies = mongo.db.movies.find().sort([('views', DESCENDING)]).limit(4)
+    return render_template('index.html', title="Home", movies=four_movies)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -84,70 +84,70 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@app.route('/create_recipe', methods=['GET', 'POST'])
-def create_recipe():
-    """Creates a recipe and enters into recipe collection"""
-    form = CreateRecipeForm(request.form)
+@app.route('/create_movie', methods=['GET', 'POST'])
+def create_movie():
+    """Creates a movie and enters into movie collection"""
+    form = CreateMovieForm(request.form)
     if form.validate_on_submit():
         # set the collection
-        recipes_db = mongo.db.recipes
-        # insert the new recipe
-        recipes_db.insert_one({
+        movies_db = mongo.db.movies
+        # insert the new movie
+        movies_db.insert_one({
             'title': request.form['title'],
             'user': session['username'],
             'short_description': request.form['short_description'],
-            'ingredients': request.form['ingredients'],
+            'collections': request.form['collections'],
             'method': request.form['method'],
             'tags': request.form['tags'],
             'image': request.form['image'],
             'views': 0
         })
-        return redirect(url_for('index', title='New Recipe Added'))
-    return render_template('create_recipe.html', title='create a recipe', form=form)
+        return redirect(url_for('index', title='New Movie Added'))
+    return render_template('create_movie.html', title='create a movie', form=form)
 
 
-@app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
-def edit_recipe(recipe_id):
+@app.route('/edit_movie/<movie_id>', methods=['GET', 'POST'])
+def edit_movie(movie_id):
     """Allows logged in user to edit their own recipes"""
-    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    recipe_db = mongo.db.movies.find_one_or_404({'_id': ObjectId(movie_id)})
     if request.method == 'GET':
-        form = EditRecipeForm(data=recipe_db)
-        return render_template('edit_recipe.html', recipe=recipe_db, form=form)
-    form = EditRecipeForm(request.form)
+        form = EditMovieForm(data=movie_db)
+        return render_template('edit_movie.html', movie=movie_db, form=form)
+    form = EditMovieForm(request.form)
     if form.validate_on_submit():
-        recipes_db = mongo.db.recipes
-        recipes_db.update_one({
-            '_id': ObjectId(recipe_id),
+        movies_db = mongo.db.recipes
+        movies_db.update_one({
+            '_id': ObjectId(movie_id),
         }, {
             '$set': {
                 'title': request.form['title'],
                 'user': session['username'],
                 'short_description': request.form['short_description'],
-                'ingredients': request.form['ingredients'],
+                'collections': request.form['collections'],
                 'method': request.form['method'],
                 'tags': request.form['tags'],
                 'image': request.form['image'],
             }
         })
-        return redirect(url_for('index', title='New Recipe Added'))
-    return render_template('edit_recipe.html', recipe=recipe_db, form=form)
+        return redirect(url_for('index', title='New Movie Added'))
+    return render_template('edit_movie.html', movie=movie_db, form=form)
 
 
-@app.route('/delete_recipe/<recipe_id>', methods=['GET', 'POST'])
-def delete_recipe(recipe_id):
+@app.route('/delete_movie/<movie_id>', methods=['GET', 'POST'])
+def delete_movie(movie_id):
     """Allows logged in user to delete one of their recipes with added confirmation"""
-    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    movie_db = mongo.db.movies.find_one_or_404({'_id': ObjectId(movie_id)})
     if request.method == 'GET':
-        form = ConfirmDelete(data=recipe_db)
-        return render_template('delete_recipe.html', title="Delete Recipe", form=form)
+        form = ConfirmDelete(data=movie_db)
+        return render_template('delete_movie.html', title="Delete Movie", form=form)
     form = ConfirmDelete(request.form)
     if form.validate_on_submit():
-        recipes_db = mongo.db.recipes
-        recipes_db.delete_one({
-            '_id': ObjectId(recipe_id),
+        movies_db = mongo.db.movies
+        movies_db.delete_one({
+            '_id': ObjectId(movie_id),
         })
-        return redirect(url_for('index', title='Recipe Glut Updated'))
-    return render_template('delete_recipe.html', title="delete recipe", recipe=recipe_db, form=form)
+        return redirect(url_for('index', title='Movie-App Updated'))
+    return render_template('delete_movie.html', title="delete movie", movie=movie_db, form=form)
 
 
 @app.route('/search')
@@ -156,40 +156,40 @@ def search():
     orig_query = request.args['query']
     # using regular expression setting option for any case
     query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
-    # find instances of the entered word in title, tags or ingredients
-    results = mongo.db.recipes.find({
+    # find instances of the entered word in title, tags or collections
+    results = mongo.db.movies.find({
         '$or': [
             {'title': query},
             {'tags': query},
-            {'ingredients': query},
+            {'collections': query},
         ]
     })
     return render_template('search.html', query=orig_query, results=results)
 
 
-@app.route('/recipes')
-def recipes():
-    """Logic for recipe list and pagination"""
-    # number of recipes per page
+@app.route('/movies')
+def movies():
+    """Logic for movie list and pagination"""
+    # number of movies per page
     per_page = 8
     page = int(request.args.get('page', 1))
-    # count total number of recipes
-    total = mongo.db.recipes.count_documents({})
-    # logic for what recipes to return
-    all_recipes = mongo.db.recipes.find().skip((page - 1)*per_page).limit(per_page)
+    # count total number of movies
+    total = mongo.db.movies.count_documents({})
+    # logic for what movies to return
+    all_movies = mongo.db.movies.find().skip((page - 1)*per_page).limit(per_page)
     pages = range(1, int(math.ceil(total / per_page)) + 1)
-    return render_template('recipes.html', recipes=all_recipes, page=page, pages=pages, total=total)
+    return render_template('movies.html', movies=all_movies, page=page, pages=pages, total=total)
 
 
-@app.route('/recipe/<recipe_id>')
-def recipe(recipe_id):
-    """Shows full recipe and increments view"""
-    mongo.db.recipes.find_one_and_update(
-        {'_id': ObjectId(recipe_id)},
+@app.route('/movie/<movie_id>')
+def movie(movie_id):
+    """Shows full movie and increments view"""
+    mongo.db.movies.find_one_and_update(
+        {'_id': ObjectId(movie_id)},
         {'$inc': {'views': 1}}
     )
-    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
-    return render_template('recipe.html', recipe=recipe_db)
+    movie_db = mongo.db.movies.find_one_or_404({'_id': ObjectId(movie_id)})
+    return render_template('movie.html', movie=movie_db)
 
 
 @app.errorhandler(404)

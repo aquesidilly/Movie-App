@@ -22,26 +22,26 @@ class RegisterForm(FlaskForm):
     submit = SubmitField('Register')
 
 
-class CreateRecipeForm(FlaskForm):
+class CreateMovieForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     short_description = TextAreaField('Short Description', validators=[DataRequired()])
-    ingredients = TextAreaField('Ingredients (one per line please)', validators=[DataRequired()])
+    collections = TextAreaField('Collections (one per line please)', validators=[DataRequired()])
     method = TextAreaField('Instructions', validators=[DataRequired()])
     tags = StringField('Tags (separate by comma please)', validators=[DataRequired()])
     image = StringField('Image Link (full path)', validators=[DataRequired()])
-    submit = SubmitField('Add Recipe')
+    submit = SubmitField('Add Movie')
 
 
-class EditRecipeForm(FlaskForm):
+class EditMovieForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     short_description = TextAreaField('Short Description', validators=[DataRequired()])
-    ingredients = TextAreaField('Ingredients (one per line please)', validators=[DataRequired()])
+    collections = TextAreaField('Collections (one per line please)', validators=[DataRequired()])
     method = TextAreaField('Instructions', validators=[DataRequired()])
     tags = StringField('Tags (separate by comma please)', validators=[DataRequired()])
     image = StringField('Image Link (full path)', validators=[DataRequired()])
-    submit = SubmitField('Update Recipe')
+    submit = SubmitField('Update Movie')
 
 
 class ConfirmDelete(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
-    submit = SubmitField('Delete this Recipe')
+    submit = SubmitField('Delete this Movie')
