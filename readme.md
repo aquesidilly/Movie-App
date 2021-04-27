@@ -1,5 +1,5 @@
 # Project 4 - Movie-App
-The Movie-App Finder does exactly what it says on the tin. It's a place where users can create and view Movies. The live Website can be found here.
+The Movie-App Finder does exactly what it says on the app. It's a place where users can create and view Movies. The live Website can be found here.
 
 Mockup
 
@@ -38,40 +38,40 @@ Mockup
   * Acknowledgements
 # User Experience Design
  # The Strategy Plane
- Although many events are advertised on social media, it can be difficult to keep track and keep record of them as there is no single 'one page fits all'. As a biker himself, my client has requested this website for not only his own personal use but for the local biking community to have easily accessible information in one place.
+ There are so many Movie-App been advertised on social media, it can be difficult to get an app which can help you create add and display movies. As a movie pundit, many clients have  requested for a  website for a majority people who love movies  to use in thier various homes and work place  to have easy accessible information about the movie-app.
 
- This website was created for client Gareth G as a 'One Stop Shop' for event loving bikers. The aim is to provide users with a simple website that allows them to quickly find or create Motorbike Events that can be shared with other motorcycle enthusiasts. All historical events should be recorded, although they do not have to be displayed as this data will not be needed until phase two enhancements of the website.
+ This website was created for the mass people to choose from selected movies on the app for movie lovers. The aim is to provide users with a simple website that allows them to quickly find,search,edit and delete movies that can be watched by movie lovers. All movies created can be delete and can also create new ones to be watched, although they do not have to be displayed as this data will not be needed enhancements of the website.
 
  # Site Goals
- To increase the number of participants in Motorbike events by providing a simple, easy to use website that contains all the details of upcoming events.
- Increase funds raised for charity by the Site owners personal motorcycle club through advertising their events on the website.
+ To know the number of people who watch movies from the movie-app by providing a simple, easy to use website that contains updates of movies or movies available.
+ This site displays movies to be watched by people from all walks of life.
  # User stories
- As a user, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering.
+ As a user, I want the main purpose of the Movie-App to be clear so that public immediately know what the app is intended for upon entering.
  As a user, I want to easily navigate the site so that I can find content quickly with ease.
  As a user, I want the website to be responsive so that I can clearly view the webpages from my mobile, tablet or desktop.
- As a user, I want to be able to register to the website so that I can create and manage my own events.
- As a user, I want to be able to search or filter events based on custom criteria so that I can find events suited to me.
- As a user, I want a way to contact the site owner so that I can have any questions I may have in regards to the website answered.
+ As a user, Anybody should be able to register to the movie-app so that they can create and manage movies of interest.
+ As a user, Should be able to search or filter movies based on custom criteria so that I can find movies that suits the interest of the public or users.
+ As a user, will like a way to delete movies that is not interest again.
  As a user, I want to be able to return to the main site without having to use the browser buttons so that I can easily return to the website if I navigate to a page that doesn't exist.
  # The Scope Plane
   # Features planned:
 
   * Responsive design.
-  * Website title and information on the site purpose.
-  * Navigation Menu (Site Wide).
+  * Movie-App and information on the site purpose.
+  * Navigation Menu 
   * MongoDB databases to store event information and user login/profile information.
   * CRUD Functionality
   * Login functionality.
   * Logout functionality.
-  * Profile Page
-  * Motorcycle events displayed and searchable to all users.
-  * Registered user event creation and management.
+  * Home Page
+  * Search for movies for users.
+  * Registered user .
   * Importance and Difficulty
 
 # The Structure Plane
  User Story:
 
-As a user, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering.
+As a user, I would like to know the main purpose of the app to be clear so that a user can immediately know what the site is intended for.
 
 Acceptance Criteria:
 
@@ -81,11 +81,11 @@ Implementation:
 
 A site logo will be displayed on the main navigation menu. This should be displayed on all webpages.
 
-The Website title will be displated as a h1 element on the home page and a detailed description of the site will be displayed on the Home page so that is evident of the websites purpose as soon as the user visits the site.
+The Movie-App title be displated as a h1 element on the home page and a detailed description of the site will be displayed on the Home page so that is evident of the movie-app's purpose as soon as the user visits the app.
 
 User Story:
 
-As a user, I want to easily navigate the site so that I can find content quickly with ease.
+As a user, I want to easily navigate the site so that I can find movies quickly with ease.
 
 Acceptance Criteria:
 
@@ -93,75 +93,65 @@ Acceptance Criteria:
   * All navigation links redirect to the correct pages.
 Implementation:
 
-A navigation menu will be displayed on all webpages. This will redirect users to the approriate page when clicked. On smaller devices, the menu will collapse into a hamburger menu to make efficient use to screen space. When clicked, the menu will expand out from the right side of the screen displaying all nav items.
+A navigation menu will be displayed on all movie-app. This will redirect users to the approriate page when clicked. On smaller devices, the menu will collapse into a hamburger menu to make efficient use to screen space. When clicked, the menu will expand out from the right side of the screen displaying all nav items.
 
 The following navigation items will be implemented:
 
 Home - index.html
 * Register - register.html
 * Sign In - login.html
-* Profile - profile.html
+* Base - base.html
 * Create - create_movie.html
+* Delete - delete.html
 * Movies - movies.html
 * Edit - edit_movies.html
 * Search- search.html
 * Sign Out - (redirects to home page)
 User Story:
 
-As a user, I want the website to be responsive so that I can clearly view the webpages from my mobile, tablet or desktop.
+As a user, I would want the Movie-App to be responsive so that I can clearly view the movies from my mobile, tablet or desktop.
 
 Acceptance Criteria:
 
 * Content should be responsive and display clearly on all devices with no horizontal scroll.
 Implementation:
 
-Materialize will be used for website layout with suitable column sizes and containers to ensure that all content is displayed clearly on all devices with no horizonal scroll. Images will be responsive and scale to fit screen sizes with no stretch or distortion to ensure clear images are displayed to the user.
-
 User Story:
 
-As a user, I want to be able to register to the website so that I can create and manage my own events.
+As a user, I want to be able to register to the website so that I can create and watch movies from the app by myself.
 
 Acceptance Criteria:
 
  * Sign up - Login and Logout functionality to be added.
- * User must have the ability to create, update and delete their own events.
- * User must have a profile page displaying their basic details and events they have created.
- * Only the creator of the events should have the ability to update or delete the events.
+ * User must have the ability to create, edit and delete movies from the app.
+ * User must have movies  displaying their details and movies they have created and watched.
+ * Only the creator of the movies can have the ability to edit or delete the movies created .
 Implementation:
 
-A Sign Up page will be implemented that allows users to register for an account on the website. The username and password along with basic details for the users account will be stored in a MongoDB database collection called users. In order to create or modify events, a user will have to register and login to the website. Only the creator of the event will have the ability to update or delete the event, this is to prevent unwanted modification or deletion of events by other users. A flash message will be shown to the user to alert them whether the update or delete on their event was successful or failed.
+A Sign Up page will be implemented that allows users to register their account for the movie-app. The username and password along with basic details for the users account will be stored in a MongoDB database collection called users. In order to create or modify , a user will have to register and login to the app. Only the creator of the app will have the ability to edit or delete movies, this is to prevent unwanted modification or deletion of movies by other users. A flash message will be shown to the user to alert them whether the edit or delete their movies was successful or failed.
 
 A Sign In page will be implemented to allow registered users the ability to login in to their account.
 
-Once a user has successfully logged in, they will be redirected to their profile page. The users basic details will be displayed on their profile, along with any events they have created. The user will be able to update or delete their events from the profile page. This page will only be available to logged in users, this includes the visibility of the navigation menu item.
+Once a user has successfully logged in, they will be redirected to their home page. The users basic details will be displayed on their home page, along with any movies they have created. The user will be able to edit or delete their movies from the home page. This page will only be available to logged in users, this includes the visibility of the navigation menu item.
 
 A Sign Out button will be displayed to users who are logged in. When clicked this will sign the user out of the website and redirect them to the home page.
 
-A Create Event page will be implemented that will be acessible and visible on the navigation menu to logged in users. The user will be able to create an event from this page. The event information will be stored in a MongoDB database collection called events and the event categories will be stored in a MongoDB collection called categories.
+A Create movie page will be implemented that will be acessible and visible on the navigation menu to logged in users. The user will be able to create movies from this page. The movie information will be stored in a MongoDB database collection called user and the user categories will be stored in a MongoDB collection called categories.
 
 User Story:
 
-As a user, I want to be able to search or filter events based on custom criteria so that I can find events suited to me.
+As a user, I want to be able to search or filter through the movies based on custom criteria so that I can find movies suitable to the user.
 
 Acceptance Criteria:
 
- * Events must be displayed to all users regardless of being logged in.
- * Users should be able to search for events by Date, Location or Event Type.
+ * Movies must be displayed to all users regardless of being logged in.
+ * Users should be able to search for movies.
 Implementation:
 
 An Events page will be implemented that is displayed to all users that is accessible to logged in or guests. This page will display the next six motorbike events from today's date on a materialize collapsible element. In order to make use of space, these events will be collapsable and can be expanded to view details on click.
 
-A search box will be displayed on screen which will allow users to search for events based on Date, Event Type or Location. This will return a filtered, full list events for the current search criteria. This will be implemented by using a database index that will be created on the MongoDB collection events.
+A search box will be displayed on screen which will allow users to search for movies. This will return a filtered, full list movies for the current search criteria. This will be implemented by using a database index that will be created on the MongoDB collection events.
 
-User Story:
-
-As a user, I want a way to contact the site owner so that I can have any questions I may have in regards to the website answered and receive feedback to alert on status of form submission.
-
-Acceptance Criteria:
-
- * Contact page should be added with a contact form. This form should only submit with valid data input.
- * Contact form should not submit with invalid data input.
- * User should be alerted of success/failure status of form submission.
 Implementation:
 
 A contact page will be added that contains a materialize form, this will allow users to contact the site owner. The EmailJS API will be used in order to implement this feature and a flash message will be displayed to alert the user if the contact form submitted successfully or unsuccessfully.
