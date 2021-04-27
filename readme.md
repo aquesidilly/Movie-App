@@ -98,12 +98,13 @@ A navigation menu will be displayed on all webpages. This will redirect users to
 The following navigation items will be implemented:
 
 Home - index.html
-* Sign Up - register.html
+* Register - register.html
 * Sign In - login.html
 * Profile - profile.html
-* Events - events.html
-* Create Event - create-event.html
-* Contact - contact.html
+* Create - create_movie.html
+* Movies - movies.html
+* Edit - edit_movies.html
+* Search- search.html
 * Sign Out - (redirects to home page)
 User Story:
 
