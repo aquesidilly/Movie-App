@@ -175,13 +175,21 @@ Implementation:
 
 A custom 404 page will be created so that if a user attempts to navigate to a page that it not found, an error will be displayed. This page will contain a clickable anchor link to allow the user to redirect to the main website without needing to use the browser navigation buttons.
 
-Collection: categories
+Collection: movies
 {
-    _id: unique-value,
-    event_type: "Rally"
+    id:
+title:""
+user:"crownie"
+short_description:"test2"
+collections:"test2"
+method:"test2"
+tags:"test2"image
+:"test2"
+views:1
+
 }
 
-Collection: events
+Collection: 
 {
     _id: unique-value,
     event_type: "Rally",
@@ -266,7 +274,6 @@ This project uses custom written CSS to style the Website.
  * VSCode is used as version control software to commit and push code to the GitHub repository where the source code is stored.
 * Heroku
  * Heroku was used to deploy the live website.
-* TinyJPG
 * Google Chrome Developer Tools
  * Google chromes built in developer tools are used to inspect page elements and help debug issues with the site layout and test different CSS styles.
 * Font Awesome
