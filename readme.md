@@ -251,14 +251,8 @@ All custom heading text is a deep shade of red #831717
 *Typography
 The main heading on all pages and in the expanded materialize collapsible element headings use the 'PT Serif' font while the rest of the websites content uses the 'Play' font.
 
-*Imagery
-A background image will be used on all pages displaying a map of Ireland, this image was taken from mapswire.
-
-The website logo was created using online software from the website Canva.
-
-The home page image of the bride and motorbike burnouts is property of Debbie Harkin. - Permission was granted to use the image.
-
-The second home page image of the three biker meet is property of Connor Meehan. - Permission to use this was given.
+* Imagery
+A background image will be used on all pages displaying vegetation, this image was taken from goggle .
 
 # Differences to Design
 After meeting with the client, Gareth G half way through the project, some of the Design was changed as it did not meet expectations. The colour scheme for the Website and fonts were changed as per the clients request.
@@ -270,25 +264,25 @@ Search fields were also changed to be single column fields. The reasoning for th
 
 Changes in design from the original wireframes can be found in the Skeleton Wireframes section as both final and original wireframes are linked.
 
-Additional verification was addd to the event deletion button to take user confirmation they want to delete the event. This was added so the user doesn't accidentally delete an event and was implemented using a modal with the option to cancel or delete.
+Additional verification was added to the event deletion button to take user confirmation they want to delete the event. This was added so the user doesn't accidentally delete an event and was implemented using a modal with the option to cancel or delete.
 
 500 Error page was not included in the original design but was implemented with the same page layout as the 404 page to account for any internal server errors.
 
 # Features
  # Existing Features
   * Home page displaying images and information on the sites purpose.
-  * User sign up functionality.
+  * Register functionality.
   * Sign in / Sign out functionality.
-  * Event page that displays the next six events from todays date and allows users to search for events.
-  * Create event page allowing signed in users to create events.
-  * Profile page showing basic user information and events created by the user with modification ability.
-  * Contact page with form and EmailJS functionality to contact site owner.
+  * Search that displays the movies from the Movie-App that allows users to search for movies.
+  * Create Movie page allowing signed in users to create movies.
+  *  Delete Movie showing basic user information and MOVIES created by the user with modification ability.
+  * Edit Movies with .
   * Mobile responsive design.
   * Site wide footer containing contact information, Copyright info and Site Links.
 # Features Left to Implement
- A feature to be included in the next release will allow users the ability to upload their own custom event posters. These will be displayed in the materialize collapsible elements along with the event information.
+ A feature to be included in the next release will allow users the ability to edit and create their own movies.
 
-Admin login will be implemented in the next release to allow admin users to delete any events that may be inappropriate.
+Admin login will be implemented in the next release to allow admin users to delete any movies that may be inappropriate.
 
 # Technologies
 * HTML
@@ -300,9 +294,6 @@ This project uses custom written CSS to style the Website.
    * jQuery is used for the following:
      * Mobile side nav
      * Displaying Success/Fail message verifying contact form status.
-     * Collapsible Materialize elements.
-     * Materialize modal.
-     * Datepicker functionality on forms.
      * To populate downdrops on select elements.
 * Python
  * This projects core was created using Python, the back-end logic and the means to run/view the Website.
@@ -317,24 +308,15 @@ This project uses custom written CSS to style the Website.
   * WTForms==2.3.3
 * MongoDB
  * MongoDB was used to create the document based databases(collections) used as data storage for this project.
-* Materialize
- * The Materialize framework was used through the website for layout and responsiveness.
-* Google Fonts
- * Google fonts are used throughout the project to import the Inter and Bevan fonts.
 * GitHub
- * GithHub is the hosting site used to store the source code for the Website.
+ * GithHub is the hosting site used to store the source code of the Movie-App.
 * VSCode
  * VSCode is used as version control software to commit and push code to the GitHub repository where the source code is stored.
 * Heroku
  * Heroku was used to deploy the live website.
 * TinyJPG
- * TinyJPG/TinyPNG is used to reduce the file sizes of images before being deployed to reduce storage and bandwith.
 * Google Chrome Developer Tools
  * Google chromes built in developer tools are used to inspect page elements and help debug issues with the site layout and test different CSS styles.
-* balsamiq Wireframes
- * This was used to create wireframes for 'The Skeleton Plane' stage of UX design.
-* Canva
- * Canva design was used in order to create the website logo.
 * Font Awesome
  * All the Icons displayed throughout the website are Font Awesome icons.
 * Favicon
@@ -354,23 +336,19 @@ JavaScript code must pass through the JSHint Validator.
 
 Python Code must pass through PEP8 Validator
 
-High Level Test Cases
-Test Cases
-
-Access Requirements
+*Access Requirements
 Tester must have access to MongoDB in order to manually verify the insertion of records to users and events collections.
 
-Regression Testing
+*Regression Testing
 All features previous tested during development in a local environment must be regression tested in production on the live website.
 
-Assumptions and Dependencies
+*Assumptions and Dependencies
 Testing is dependent on the website being deployed live on Heroku.
 
-Out of Scope
+*Out of Scope
 Only test cases listed under High Level Test Cases will be performed as part of this testing effort.
 
-Test Results
-Full test results can be found here
+#Test Results
 
 # Deployment
  # Project Creation
