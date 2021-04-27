@@ -1,7 +1,8 @@
 # Project 4 - Movie-App
 The Movie-App Finder does exactly what it says on the app. It's a place where users can create and view Movies. The live Website can be found here.
 
-Mockup
+A live preview of the website can be found [Here](https://kenan-cookbook-ms3.herokuapp.com/) 
+
 
 # Table of Contents
  - User Experience Design (UX)
@@ -40,7 +41,7 @@ Mockup
  # The Strategy Plane
  There are so many Movie-App been advertised on social media, it can be difficult to get an app which can help you create add and display movies. As a movie pundit, many clients have  requested for a  website for a majority people who love movies  to use in thier various homes and work place  to have easy accessible information about the movie-app.
 
- This website was created for the mass people to choose from selected movies on the app for movie lovers. The aim is to provide users with a simple website that allows them to quickly find,search,edit and delete movies that can be watched by movie lovers. All movies created can be delete and can also create new ones to be watched, although they do not have to be displayed as this data will not be needed enhancements of the website.
+ This movie-app was created for the mass people to choose from selected movies on the app for movie lovers. The aim is to provide users with a simple website that allows them to quickly find,search,edit and delete movies that can be watched by movie lovers. All movies created can be delete and can also create new ones to be watched, although they do not have to be displayed as this data will not be needed enhancements of the website.
 
  # Site Goals
  To know the number of people who watch movies from the movie-app by providing a simple, easy to use website that contains updates of movies or movies available.
@@ -75,7 +76,7 @@ As a user, I would like to know the main purpose of the app to be clear so that 
 
 Acceptance Criteria:
 
-  * Site Logo to be displayed on the main navigation bar on all pages.
+  * Site Login to be displayed on the main navigation bar on all pages.
   * Home Page to display Website Title and information to the user on the purpose of the site.
 Implementation:
 
@@ -148,13 +149,13 @@ Acceptance Criteria:
  * Users should be able to search for movies.
 Implementation:
 
-An Events page will be implemented that is displayed to all users that is accessible to logged in or guests. This page will display the next six motorbike events from today's date on a materialize collapsible element. In order to make use of space, these events will be collapsable and can be expanded to view details on click.
+A Movie-App will be implemented that is displayed to all users that is accessible to logged in or guests. This page will display the movies available to watch . In order to make use of space, this app will be collapsable and can be expanded to view details on click.
 
-A search box will be displayed on screen which will allow users to search for movies. This will return a filtered, full list movies for the current search criteria. This will be implemented by using a database index that will be created on the MongoDB collection events.
+A search box will be displayed on screen which will allow users to search for movies. This will return a filtered, full list movies for the current search criteria. This will be implemented by using a database index that will be created on the MongoDB collection users.
 
 Implementation:
 
-A contact page will be added that contains a materialize form, this will allow users to contact the site owner. The EmailJS API will be used in order to implement this feature and a flash message will be displayed to alert the user if the contact form submitted successfully or unsuccessfully.
+A login page will allow users to get access to the app. The EmailJS API will be used in order to implement this feature and a flash message will be displayed to alert the user if the contact form submitted successfully or unsuccessfully.
 
 Validation will be performed on the form to ensure valid data input. The form will not submit if any field is blank.
 
@@ -162,7 +163,7 @@ Form Fields:
 
  * Name - Type: Text, required.
  * Email - Type: Email, required.
- * Comments - Type: TextArea, required.
+ * Password- Type: Text, required
 User Story:
 
 As a user, I want to be able to return to the main site without having to use the browser buttons so that I can easily return to the website if I navigate to a page that doesn't exist.
@@ -173,43 +174,6 @@ Acceptance Criteria:
 Implementation:
 
 A custom 404 page will be created so that if a user attempts to navigate to a page that it not found, an error will be displayed. This page will contain a clickable anchor link to allow the user to redirect to the main website without needing to use the browser navigation buttons.
-
-The Skeleton Plane
-Wireframes
-Final Wireframes
-
-Home:
-Home
-404:
-404
-Contact:
-Contact
-Create Event:
-Create Event
-Edit Event:
-Edit Event
-Events:
-Events
-Profile
-Profile
-Sign In:
-Sign In
-Sign Up
-Sign Up
-
-Original Design Wireframes
-
-* Home
-* 404
-* Contact
-* Create Event
-* Edit Event
-* Events
-* Profile
-* Sign In
-* Sign Up
-* Database Design
-* MongoDB Object format examples:
 
 Collection: categories
 {
@@ -254,19 +218,7 @@ The main heading on all pages and in the expanded materialize collapsible elemen
 * Imagery
 A background image will be used on all pages displaying vegetation, this image was taken from goggle .
 
-# Differences to Design
-After meeting with the client, Gareth G half way through the project, some of the Design was changed as it did not meet expectations. The colour scheme for the Website and fonts were changed as per the clients request.
-
-In the original wireframes the Logo was centered and nav items split to the left and right side. This design did not look well on the page, it left too much white space, nav items were too spaced on extra large screens and upon reading about UX Design standards or navigations, it did not really confirm to norms or user friendly design. The design was then changed to have a banner with a large logo across the top of the page, with the navigation items sat underneath.
-
-Original design and wireframes had the drop down input used to search events as a dual box that could search by either location or event_type. This proved difficult to implement and was agreed upon with the client to add an additional date picker search field.
-Search fields were also changed to be single column fields. The reasoning for this was reading this article on form best practices.
-
-Changes in design from the original wireframes can be found in the Skeleton Wireframes section as both final and original wireframes are linked.
-
-Additional verification was added to the event deletion button to take user confirmation they want to delete the event. This was added so the user doesn't accidentally delete an event and was implemented using a modal with the option to cancel or delete.
-
-500 Error page was not included in the original design but was implemented with the same page layout as the 404 page to account for any internal server errors.
+A live preview of the website can be found [Here](https://kenan-cookbook-ms3.herokuapp.com/) 
 
 # Features
  # Existing Features
@@ -336,19 +288,19 @@ JavaScript code must pass through the JSHint Validator.
 
 Python Code must pass through PEP8 Validator
 
-*Access Requirements
+* Access Requirements
 Tester must have access to MongoDB in order to manually verify the insertion of records to users and events collections.
 
-*Regression Testing
+* Regression Testing
 All features previous tested during development in a local environment must be regression tested in production on the live website.
 
-*Assumptions and Dependencies
+* Assumptions and Dependencies
 Testing is dependent on the website being deployed live on Heroku.
 
-*Out of Scope
+* Out of Scope
 Only test cases listed under High Level Test Cases will be performed as part of this testing effort.
 
-#Test Results
+# Test Results
 
 # Deployment
  # Project Creation
@@ -418,9 +370,9 @@ Fork
  3. This will create a duplicate of the full project in your GitHub Repository.
 
 # Credits
-Background image - Taken from mapswire.
+Background image - google images.
 
-Website Logo - Created with Canva.
+Website Logo - 
 
 # Code
 Stack Overflow - The code used to navigate to a specific section of a page using Flask templates was taken from here.
@@ -436,8 +388,6 @@ JavaScript Validation function in scripts.js was code from course material for T
 # Acknowledgements
 I'd like to give special thanks to the the following people for their help with my project:
 
-* Slack user Seán for providing me information on how to implement 404 and 500 page routing with flask and helping me debug why the Manage Events title was showing when the user had no events. Also for the help with my delete unit test.
-* Slack user Anthony for his help with my error/message Flash messages.
-* Slack user Bim for his help with good UX Design practices and showing articles referencing these.
+* Two friends who helped in making this project successful (names with held) 
 * My mentor Spencer Baribell for his guidance throughout the project.
 
