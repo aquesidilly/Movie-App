@@ -181,7 +181,7 @@ Acceptance Criteria:
   * If a user redirects to the wrong page, an error will display that contains a link to go back to the main website.
 Implementation:
 
-A custom 404 page will be created so that if a user attempts to nagiate to a page that it not found, an error will be displayed. This page will contain a clickable anchor link to allow the user to redirect to the main website without needing to use the browser navigation buttons.
+A custom 404 page will be created so that if a user attempts to navigate to a page that it not found, an error will be displayed. This page will contain a clickable anchor link to allow the user to redirect to the main website without needing to use the browser navigation buttons.
 
 The Skeleton Plane
 Wireframes
