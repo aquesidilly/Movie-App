@@ -15,7 +15,7 @@ app = app_module.app
 # Setting up test DB on Mongo and switching CSRF checks off
 app.config["TESTING"] = True
 app.config["WTF_CSRF_ENABLED"] = False
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/recipeGlutTesting'
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/movie-appTesting'
 
 mongo = PyMongo(app)
 app_module.mongo = mongo
@@ -93,7 +93,7 @@ class LoggedInTests(AppTestCase):
     """Separate class to clean DB with no cross referencing"""
     def setUp(self):
         """
-        Clean the DB, add new user and recipe and check user and new recipe
+        Clean the DB, add new user and movie and check user and new movie
         shows on home after redirect
         """
         super().setUp()
@@ -105,7 +105,7 @@ class LoggedInTests(AppTestCase):
         ))
         res = self.client.post('/create_recipe', follow_redirects=True, data={
             'title': 'Magnificient 7',
-            'short_description': 'Get this mac and cheese',
+            'short_description': 'The movie is about holocust took place in Texas in the United States of America',
             'collections': 'Action',
             'image': 'some image link'
         })
@@ -164,4 +164,4 @@ class LoggedInTests(AppTestCase):
         res = self.client.post('/delete_movie/{}'.format(ids[0]), follow_redirects=True)
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
-        assert 'Mac and cheese' not in data
+        assert 'Magnificient 7' not in data
