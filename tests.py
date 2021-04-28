@@ -137,33 +137,31 @@ class LoggedInTests(AppTestCase):
         assert res.status == '200 OK'
         assert 'Birdbox' in data
 
-    def test_edit_recipe(self):
-        """Edit recipe and check redirect to home page"""
-        res = self.client.get('/recipes')
-        ids = re.findall(r'href="/recipe/(\w+)"', res.data.decode("utf8"))
+    def test_edit_movie(self):
+        """Edit movie and check redirect to home page"""
+        res = self.client.get('/movies')
+        ids = re.findall(r'href="/movie/(\w+)"', res.data.decode("utf8"))
         assert len(ids) > 0
-        res = self.client.get('/edit_recipe/{}'.format(ids[0]))
+        res = self.client.get('/edit_movie/{}'.format(ids[0]))
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
-        assert 'Mac and cheese' in data
-        res = self.client.post('/edit_recipe/'.format(ids[0]), follow_redirects=True, data={
-            'title': 'Mac and cheese',
-            'short_description': 'Get this maccy and cheese',
-            'ingredients': '8 blocks of cheddar',
-            'method': 'Put all the ingredients',
-            'tags': 'cheese, slow',
+        assert 'Birdbox' in data
+        res = self.client.post('/edit_movie/'.format(ids[0]), follow_redirects=True, data={
+            'title': 'Birdbox',
+            'short_description': 'There is a twilight moving along the earth which causes people to get blind and die',
+            'collections': 'Thriller',
             'image': 'some image link'
         })
         assert res.status == '200 OK'
 
-    def test_delete_recipe(self):
-        """Delete recipe and check recipe is not present after redirect"""
-        res = self.client.get('/recipes')
-        # use regular expression to find Object id of recipe
-        ids = re.findall(r'href="/recipe/(\w+)"', res.data.decode("utf-8"))
+    def test_delete_movie(self):
+        """Delete movie and check movie is not present after redirect"""
+        res = self.client.get('/movies')
+        # use regular expression to find Object id of movie
+        ids = re.findall(r'href="/movie/(\w+)"', res.data.decode("utf-8"))
         assert len(ids) > 0
-        # togo that delete recipe page using extracted id
-        res = self.client.post('/delete_recipe/{}'.format(ids[0]), follow_redirects=True)
+        # togo that delete movie page using extracted id
+        res = self.client.post('/delete_movie/{}'.format(ids[0]), follow_redirects=True)
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
         assert 'Mac and cheese' not in data
