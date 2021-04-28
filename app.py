@@ -135,7 +135,7 @@ def delete_movie(movie_id):
     movie_db = mongo.db.movies.find_one_or_404({'_id': ObjectId(movie_id)})
     if request.method == 'GET':
         form = ConfirmDelete(data=movie_db)
-        return render_template('delete_movie.html', title="Delete Movie", form=form)
+        return render_template('delete_movie.html', title="Magnificient 7", form=form)
     form = ConfirmDelete(request.form)
     if form.validate_on_submit():
         movies_db = mongo.db.movies
