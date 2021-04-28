@@ -36,11 +36,11 @@ class AppTests(AppTestCase):
         res = self.client.get('/')
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
-        assert 'A Glut of Recipes' in data
+        assert 'Movie-App' in data
 
-    def test_recipes(self):
-        """Test recipe list page loading"""
-        res = self.client.get('/recipes')
+    def test_movies(self):
+        """Test movie list page loading"""
+        res = self.client.get('/movies')
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
         assert 'features' in data
@@ -59,18 +59,18 @@ class AppTests(AppTestCase):
     def test_register_duplicate_username(self):
         """Check entering a username that is already used returns username is already taken message"""
         res = self.client.post('/register', follow_redirects=True, data=dict(
-            username='fred',
-            password='asdfasdfasdf',
-            password2='asdfasdfasdf',
-            email='fred@aol.com',
+            username='Fremah',
+            password='akuaghfad',
+            password2='akuaghfad',
+            email='fremah@gmail.com',
         ))
         data = res.data.decode('utf-8')
-        assert 'A Glut of Recipes' in data
+        assert 'Movie-App' in data
         res = self.client.post('/register', follow_redirects=True, data=dict(
-            username='fred',
-            password='asdfasdfasdf',
-            password2='asdfasdfasdf',
-            email='fred@aol.com',
+            username='Fremah',
+            password='akuaghfad',
+            password2='akuaghfad',
+            email='fremah@gmail.com',
         ))
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
@@ -86,7 +86,7 @@ class AppTests(AppTestCase):
         ))
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
-        assert 'A Glut of Recipes' in data
+        assert 'Movie-App' in data
 
 
 class LoggedInTests(AppTestCase):
@@ -98,10 +98,10 @@ class LoggedInTests(AppTestCase):
         """
         super().setUp()
         res = self.client.post('/register', follow_redirects=True, data=dict(
-            username='fred3',
-            password='asdfasdfasdf',
-            password2='asdfasdfasdf',
-            email='fred3@aol.com',
+            username='Kofy1',
+            password='basumadugh',
+            password2='basumadugh',
+            email='Kofy1@gmail.com',
         ))
         res = self.client.post('/create_recipe', follow_redirects=True, data={
             'title': 'Mac and cheese',
