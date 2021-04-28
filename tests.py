@@ -104,20 +104,18 @@ class LoggedInTests(AppTestCase):
             email='Kofy1@gmail.com',
         ))
         res = self.client.post('/create_recipe', follow_redirects=True, data={
-            'title': 'Mac and cheese',
+            'title': 'Magnificient 7',
             'short_description': 'Get this mac and cheese',
-            'ingredients': '8 spring onions',
-            'method': 'Put all the ingredients',
-            'tags': 'cheese, slow',
+            'collections': 'Action',
             'image': 'some image link'
         })
         data = res.data.decode('utf-8')
-        assert 'fred3' in data
-        assert 'Mac and cheese'
+        assert 'Kofy1' in data
+        assert 'Magnificient 7'
 
-    def test_create_recipe(self):
-        """Create recipe and check new recipe shows after redirect"""
-        res = self.client.post('/create_recipe', follow_redirects=True, data={
+    def test_create_Movie(self):
+        """Create movie and check new movie shows after redirect"""
+        res = self.client.post('/create_movie', follow_redirects=True, data={
             'title': 'Slow - cooker vegan bean chilli',
             'short_description': 'Get this vegan',
             'ingredients': '8 spring onions',
