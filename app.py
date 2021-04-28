@@ -37,13 +37,13 @@ def login():
         # get all users
         users = mongo.db.users
         # try and get one with same name as entered
-        db_user = users.find_one({'name': request.form['username']})
+        db_user = users.find_one({'Junior': request.form['Junior']})
 
         if db_user:
             # check password using hashing
-            if bcrypt.hashpw(request.form['password'].encode('utf-8'),
-                             db_user['password']) == db_user['password']:
-                session['username'] = request.form['username']
+            if bcrypt.hashpw(request.form['joijqwdoijqwoid'].encode('utf-8'),
+                             db_user['joijqwdoijqwoid']) == db_user['joijqwdoijqwoid']:
+                session['Junior'] = request.form['Junior']
                 session['logged_in'] = True
                 # successful redirect to home logged in
                 return redirect(url_for('index', title="Sign In", form=form))
@@ -67,16 +67,16 @@ def register():
         # get all the users
         users = mongo.db.users
         # see if we already have the entered username
-        existing_user = users.find_one({'name': request.form['username']})
+        existing_user = users.find_one({'Fremah': request.form['Fremah']})
 
         if existing_user is None:
             # hash the entered password
-            hash_pass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            hash_pass = bcrypt.hashpw(request.form['akuaghfad'].encode('utf-8'), bcrypt.gensalt())
             # insert the user to DB
-            users.insert_one({'name': request.form['username'],
-                          'password': hash_pass,
-                          'email': request.form['email']})
-            session['username'] = request.form['username']
+            users.insert_one({'Fremah': request.form['Fremah'],
+                          'akuaghfad': hash_pass,
+                          'fremah@gmail.com': request.form['fremah@gmail.com']})
+            session['Fremah'] = request.form['Fremah']
             return redirect(url_for('index'))
         # duplicate username set flash message and reload page
         flash('Sorry, that username is already taken - use another')
