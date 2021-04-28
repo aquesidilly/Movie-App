@@ -116,15 +116,13 @@ class LoggedInTests(AppTestCase):
     def test_create_Movie(self):
         """Create movie and check new movie shows after redirect"""
         res = self.client.post('/create_movie', follow_redirects=True, data={
-            'title': 'Slow - cooker vegan bean chilli',
-            'short_description': 'Get this vegan',
-            'ingredients': '8 spring onions',
-            'method': 'Put all the ingredients',
-            'tags': 'vegan, slow',
+            'title': 'Eraser',
+            'short_description': 'This movie is horror action movie which happened in time memorial',
+            'collections': 'Action and horror',
             'image': 'some image link'
         })
         data = res.data.decode('utf-8')
-        assert 'vegan' in data
+        assert 'Eraser' in data
 
     def test_recipe_page(self):
         """Find Recipe and go to it's recipe page"""
