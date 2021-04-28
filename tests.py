@@ -1,5 +1,5 @@
 '''
-These Test classes test the business logic of users and recipe
+These Test classes test the business logic of users and movie
 views and models.
 '''
 
@@ -103,7 +103,7 @@ class LoggedInTests(AppTestCase):
             password2='basumadugh',
             email='Kofy1@gmail.com',
         ))
-        res = self.client.post('/create_recipe', follow_redirects=True, data={
+        res = self.client.post('/create_movie', follow_redirects=True, data={
             'title': 'Magnificient 7',
             'short_description': 'The movie is about holocust took place in Texas in the United States of America',
             'collections': 'Action',
