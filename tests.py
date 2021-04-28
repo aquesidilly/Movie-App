@@ -124,18 +124,18 @@ class LoggedInTests(AppTestCase):
         data = res.data.decode('utf-8')
         assert 'Eraser' in data
 
-    def test_recipe_page(self):
-        """Find Recipe and go to it's recipe page"""
-        res = self.client.get('/recipes')
-        # use regular expression to find Object id of recipe
-        ids = re.findall(r'href="/recipe/(\w+)"', res.data.decode("utf8"))
+    def test_movie_page(self):
+        """Find Movie and go to it's movie page"""
+        res = self.client.get('/movies')
+        # use regular expression to find Object id of movie
+        ids = re.findall(r'href="/movie/(\w+)"', res.data.decode("utf8"))
         # check we have something
         assert len(ids) > 0
-        # to go that recipe page using extracted id
-        res = self.client.get('/recipe/{}'.format(ids[0]))
+        # to go that movie page using extracted id
+        res = self.client.get('/movie/{}'.format(ids[0]))
         data = res.data.decode('utf-8')
         assert res.status == '200 OK'
-        assert 'Mac and cheese' in data
+        assert 'Birdbox' in data
 
     def test_edit_recipe(self):
         """Edit recipe and check redirect to home page"""
